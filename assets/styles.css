@@ -204,6 +204,15 @@ nav {
     border-radius: 10px
 }
 
+.brand-footer img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+    object-fit: contain;
+    background: #fff;
+    border-radius: 10px
+}
+
 .navlinks {
     display: flex;
     gap: 23px;
@@ -712,7 +721,7 @@ footer {
 }
 
 .footer-grid {
-    grid-template-columns: 2fr 1fr 1fr 1fr
+    grid-template-columns: 3fr 0.8fr 0.8fr 1.2fr 1fr
 }
 
 .footer-grid h4 {

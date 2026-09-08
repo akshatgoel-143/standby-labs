@@ -1,3 +1,27 @@
+fetch("/partials/head.html")
+    .then(res => res.text())
+    .then(data => document.head.insertAdjacentHTML("afterbegin", data));
+
+// =================Head Header Footer =================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const header = document.getElementById("header");
+
+    if (header) {
+        fetch("/partials/header.html")
+            .then(res => res.text())
+            .then(data => header.innerHTML = data);
+    }
+
+    const footer = document.getElementById("footer");
+
+    if (footer) {
+        fetch("/partials/footer.html")
+            .then(res => res.text())
+            .then(data => footer.innerHTML = data);
+    }
+});
+
 document.addEventListener("DOMContentLoaded", () => {
     document.body.classList.add("loaded");
     const menu = document.querySelector(".menu"),
@@ -18,7 +42,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector("#contactForm");
     if (form) form.addEventListener("submit", e => {
         e.preventDefault();
-        document.querySelector(".form-message").textContent = "Thanks — your enquiry has been captured for this demo.";
+        document.querySelector(".form-message").textContent = "Thanks — your enquiry has been captured for this.";
         form.reset()
+    });
+    const applicationform = document.querySelector("#applicationform");
+    if (applicationform) applicationform.addEventListener("submit", e => {
+        e.preventDefault();
+        document.querySelector(".form-message").textContent = "Thanks — your application has been sent successfully. Our Team will get back to you.";
+        applicationform.reset()
     });
 });
