@@ -88,10 +88,23 @@ p {
     margin: 14px 0
 }
 
+.title-2 {
+    font-size: clamp(2.3rem, 2vw, 4.6rem);
+    line-height: 1;
+    letter-spacing: -.055em;
+    margin: 14px 0
+}
+
 .lead {
     font-size: 1.1rem;
     color: #b5bac5;
     max-width: 700px
+}
+
+.lead-2 {
+    font-size: 1.1rem;
+    color: #b5bac5;
+    max-width: 1000px
 }
 
 .section {
@@ -728,7 +741,7 @@ footer {
 }
 
 .page-hero {
-    padding: 190px 0 90px;
+    padding: 150px 0 90px;
     position: relative
 }
 
@@ -909,4 +922,26 @@ textarea {
     .page-hero {
         padding-top: 145px
     }
+}
+
+.page-hero .terms-list {
+    list-style: decimal;
+    padding-left: 2.5em;
+    margin-left: 0;
+}
+
+.page-hero .terms-list li {
+    padding-left: 0.4em;
+    margin-bottom: 0.6em;
+}
+
+.page-hero ul:not(.terms-list) {
+    list-style: disc;
+    padding-left: 2.5em;
+    margin-left: 0;
+}
+
+.page-hero ul:not(.terms-list) li {
+    padding-left: 0.4em;
+    margin-bottom: 0.6em;
 }
