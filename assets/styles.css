@@ -256,7 +256,7 @@ nav {
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, transparent 60%, var(--bg) 100%), url("assets/cover.jfif") center/cover no-repeat;
+    background: linear-gradient(180deg, transparent 60%, var(--bg) 100%), url("assets/images/cover.jfif") center/cover no-repeat;
     opacity: .18;
     z-index: -1
 }
