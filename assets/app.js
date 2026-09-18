@@ -5,79 +5,55 @@ fetch("/partials/head.html")
 
 // =================Head Header Footer =================
 document.addEventListener("DOMContentLoaded", () => {
-
-    /* =========================
-       LOAD HEADER
-    ========================= */
-
+    /* =========================LOAD HEADER========================= */
     const header = document.getElementById("header");
-
     if (header) {
         fetch("/partials/header.html")
             .then(res => res.text())
             .then(data => {
-
                 header.innerHTML = data;
-
-                /* =========================
-                   MOBILE MENU
-                ========================= */
-
+                /* =========================MOBILE MENU========================= */
                 const menu = header.querySelector(".menu");
                 const nav = header.querySelector(".navlinks");
-
                 if (menu && nav) {
-
                     menu.addEventListener("click", () => {
                         nav.classList.toggle("open");
                     });
-
                     nav.querySelectorAll("a").forEach(link => {
                         link.addEventListener("click", () => {
                             nav.classList.remove("open");
                         });
                     });
                 }
-
-
-                /* =========================
-                   ACTIVE NAV LINK
-                ========================= */
-
+                /* =========================ACTIVE NAV LINK========================= */
                 const currentPage =
                     window.location.pathname.split("/").pop() || "index.html";
-
                 nav.querySelectorAll("a").forEach(link => {
-
                     const href = link.getAttribute("href");
-
                     if (!href) return;
-
+                    if (href.includes("#")) return;
                     const linkPage =
-                        href.split("/").pop().split("#")[0] || "index.html";
-
+                        // href.split("/").pop().split("#")[0] || "index.html";
+                        href.split("/").pop() || "index.html";
+                    if (href === "/#testimonial") {
+                        if (currentPage === "index.html") {
+                            link.classList.add("active");
+                        }
+                        return;
+                    }
                     if (linkPage === currentPage) {
                         link.classList.add("active");
                     }
-
                 });
-
             });
     }
-
-
-    /* =========================
-       LOAD FOOTER
-    ========================= */
-
+    /* =========================LOAD FOOTER========================= */
     const footer = document.getElementById("footer");
-
     if (footer) {
         fetch("/partials/footer.html")
             .then(res => res.text())
             .then(data => footer.innerHTML = data);
     }
-
 });
 
 document.addEventListener("DOMContentLoaded", () => {
