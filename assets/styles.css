@@ -75,7 +75,7 @@ p {
 }
 
 .display {
-    font-size: clamp(3.5rem, 8vw, 8.2rem);
+    font-size: clamp(3.5rem, 8vw, 6.2rem);
     line-height: .9;
     letter-spacing: -.075em;
     margin: 18px 0
@@ -227,7 +227,8 @@ nav {
 
 .navlinks a:hover,
 .navlinks a.active {
-    color: #fff
+    color: #fff;
+    font-weight: bold;
 }
 
 .menu {
@@ -304,13 +305,13 @@ nav {
 
 .logo-big {
     position: absolute;
-    width: 250px;
-    height: 250px;
+    width: 300px;
+    height: 300px;
     object-fit: contain;
     background: #fff;
     border-radius: 36px;
     left: 50%;
-    top: 45%;
+    top: 50%;
     transform: translate(-50%, -50%);
     box-shadow: 0 35px 100px rgba(0, 0, 0, .5)
 }
@@ -326,22 +327,22 @@ nav {
 }
 
 .f1 {
-    top: 28px;
-    left: 28px
+    top: 30px;
+    left: 30px
 }
 
 .f2 {
-    right: 28px;
-    top: 110px
+    right: 30px;
+    top: 80px
 }
 
 .f3 {
-    left: 28px;
-    bottom: 30px
+    left: 30px;
+    bottom: 90px
 }
 
 .f4 {
-    right: 28px;
+    right: 30px;
     bottom: 30px
 }
 
@@ -435,34 +436,17 @@ nav {
     min-height: 470px;
     border: 1px solid var(--line);
     border-radius: 34px;
-    position: relative;
     overflow: hidden;
-    background: radial-gradient(circle at 30% 30%, rgba(48, 72, 255, .25), transparent 25%), linear-gradient(135deg, #111522, #08090d)
+    margin-right: 1rem;
+    background: #111522;
 }
 
-.visual-panel .orb {
-    position: absolute;
-    border-radius: 50%;
-    border: 1px solid rgba(126, 141, 255, .3);
-    width: 300px;
-    height: 300px;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 0 0 100px rgba(48, 72, 255, .22)
-}
-
-.visual-panel .orb:after {
-    content: "</>";
-    position: absolute;
-    inset: 0;
-    display: grid;
-    place-items: center;
-    font-size: 9rem;
-    font-weight: 950;
-    font-style: bold;
-    color: #ffffff;
-    text-shadow: 0 0 30px rgba(192, 194, 202, 0.25)
+.visual-panel img {
+    width: 100%;
+    height: 100%;
+    min-height: 470px;
+    display: block;
+    object-fit: cover;
 }
 
 .checks {
@@ -860,6 +844,24 @@ textarea {
     border-color: transparent
 }
 
+.social-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+}
+
+.social-links a {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.7;
+}
+
 @media(max-width:1000px) {
     .hero-grid,
     .split {
@@ -878,11 +880,39 @@ textarea {
     .footer-grid {
         grid-template-columns: 1fr 1fr
     }
+    .nav {
+        position: relative;
+    }
     .navlinks {
-        display: none
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 0;
+        width: 220px;
+        padding: 15px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 5px;
+        background: var(--bg);
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+        z-index: 1000;
+    }
+    .navlinks.open {
+        display: flex;
+    }
+    .navlinks a {
+        width: 100%;
+        padding: 10px 12px;
+    }
+    .navlinks .btn {
+        text-align: center;
+        margin-top: 5px;
     }
     .menu {
-        display: block
+        display: block;
+        cursor: pointer;
     }
 }
 
@@ -897,8 +927,8 @@ textarea {
         min-height: 420px
     }
     .logo-big {
-        width: 190px;
-        height: 190px
+        width: 200px;
+        height: 200px
     }
     .cards4,
     .project-grid,
@@ -916,17 +946,24 @@ textarea {
         flex-direction: column;
         align-items: flex-start
     }
-    .f2,
-    .f4 {
-        right: 15px
+    .f2 {
+        right: 15px;
     }
-    .f1,
+    .f4 {
+        right: 15px;
+        bottom: 15px;
+    }
+    .f1 {
+        top: 15px;
+        left: 15px;
+    }
     .f3 {
-        left: 15px
+        left: 15px;
+        bottom: 80px;
     }
     .floating {
         padding: 11px 12px;
-        font-size: .82rem
+        font-size: .65rem
     }
     .page-hero {
         padding-top: 145px
